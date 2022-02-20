@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+
+    <title>YktLearning</title>
+    <meta charset="UTF-8">
+    {%  load staticfiles %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}" type="type/css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+   <link rel="apple-touch-icon" sizes="180x180" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+<link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+<link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+<link rel="manifest" href="{% static 'img/favicon/site.webmanifest' %}">
+<link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+</head>
+<body class="d-flex h-100">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-dark border-bottom">
+      <a {% if user.is_authenticated %}
+    href="{% url 'news' %}"
+  {% else %}
+    href="{% url 'landing' %}"
+  {% endif %} class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <span class="fs-4"><img src="{% static 'img/STT.png' %}" width="30" height="24">YktLearning</span>
+      </a>
+      <ul class="nav col-12 col-md-auto mb-2  mb-md-0">
+
+      </ul>
+
+      <div class="col-md-3 text-end">
+          {% if user.is_authenticated %}
+              <div class="dropdown d-inline-block">
+                    <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">{{ user.get_username }}</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item btn-outline-secondary " href="{% url 'profile' %}">Профиль</a>
+                    <a class="dropdown-item btn-outline-secondary" href="{% url 'logout'%}?next={% url 'landing' %}">Выйти</a>
+                  </div>
+              </div>
+          {% endif %}
+
+      </div>
+    </header>
+        <main style="margin-left:4%; margin-right:4%;"class="px-3">
+            {% block content %}
+            {% endblock %}
+    </main>
+    <footer class="mt-auto text-primary-50">
+
+    </footer>
+    </div>
+    </body>
+</html>

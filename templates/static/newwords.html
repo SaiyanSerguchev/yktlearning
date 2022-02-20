@@ -1,0 +1,10 @@
+{% extends 'static/contacts.html' %}
+{% load static %}
+{% block lesson %}
+    <h1 class="h2 text-lg-center mt-5">Новые слова </h1>
+    <div class="center-block text-center" style="column-count: 2">
+
+        {{ posts.words|linebreaks }}
+
+    </div>
+{% endblock %}

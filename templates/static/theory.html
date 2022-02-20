@@ -1,0 +1,9 @@
+{% extends 'static/contacts.html' %}
+{% load static %}
+{% block lesson %}
+    <h1 class="h2 text-lg-center mt-5">Теория </h1>
+<p class="my-3">
+{{ posts.theory| linebreaks }}
+</p>
+
+{% endblock %}

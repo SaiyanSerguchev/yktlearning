@@ -1,0 +1,21 @@
+{% extends 'static/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}" type="type/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link ><a href="{% url 'news' %}" class="text-decoration-none text-dark">&#8592; Вернуться на главный экран</a></link>
+    <p class="h2 text-center mt-3 mb-3 ">Урок №{{ posts.pk }}</p>
+<div style="width:100%; height:500px; position:relative" class="mt-2 container rounded border border-dark bg-white ">
+
+
+<ul id="progress" class="mt-2">
+    <li {% if 'theory' in request.path %}class="active"{% endif %}><a href="{% url 'theory' posts.pk %}" class="text-decoration-none text-white">Теория</a></li>
+    <li {% if 'newwords' in request.path %}class="active"{% endif %}><a href="{% url 'newwords' posts.pk %}" class="text-decoration-none text-white">Новые слова</a></li>
+    <li {% if 'practice' in request.path %}class="active"{% endif %}><a href="{% url 'practice' posts.pk %}" class="text-decoration-none text-white">Практика</a></li>
+</ul>
+    {% block lesson %}
+    {% endblock lesson %}
+
+</div>
+{% endblock content %}

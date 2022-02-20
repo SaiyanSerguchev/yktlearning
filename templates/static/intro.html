@@ -1,0 +1,25 @@
+{% extends 'static/base.html' %}
+{% load static %}
+{% block content %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href ="{% static 'css/bootstrap.min.css' %}" type="type/css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <a href="{% url 'news' %}" class="text-decoration-none text-dark">&#8592; Вернуться на главный экран</a>
+    <p class="h2 text-center mt-3 mb-3 ">Введение</p>
+<div style="width:100%; height:500px; position:relative" class="mt-2 container rounded border border-dark bg-white ">
+
+
+<ul id="progress" class="mt-2">
+   <a href="{% url 'intro' %}" class="text-decoration-none text-white"> <li class="active">1</li></a>
+   <a href="{% url 'intro2' %}" class="text-decoration-none text-white"> <li >2</li></a>
+    <a href="{% url 'intro3' %}" class="text-decoration-none text-white"><li >3</li></a>
+</ul>
+<p style ="line-height:2; text-indent: 20px;" class="mt-5">
+        Приветствуем вас на сайте изучения якутского языка! Наш курс состоит из Х мини-уроков, каждый из которых состоит из теории,
+    новых якутских слов для запоминания и quiz-теста.
+    После прохождения курса вы будете иметь общее понимание якутского языка и основу для дальнейшего подробного изучения.
+    За основу курса была взята книга "Самоучитель якутского языка" Л.Н. Харитонова.
+    Для перехода к следующей части введения нажмите на стрелку, расположенную над текстом.
+</p>
+</div>
+{% endblock content %}
